@@ -1,5 +1,12 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
+
+morgan('tiny')
+
+app.use(() =>{
+    console.log('here')
+})
 
 app.get('/', (req, res) => {
     res.send("The Crib")

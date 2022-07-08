@@ -2,10 +2,14 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
-// morgan('tiny')
+// morgan('tiny') is a logging tool
 // app.use allows me to run code on every single request
-app.use(() =>{
-    console.log('here')
+
+app.use(morgan('common'))
+//the next line literally moves on the next request
+app.use((req, res, next) =>{
+    console.log("I got next")
+    next();
 })
 
 app.get('/', (req, res) => {
